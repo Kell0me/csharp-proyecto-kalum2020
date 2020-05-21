@@ -12,7 +12,7 @@ namespace Kalum2020v1.Views
         public SalonView()
         {
         InitializeComponent();
-        model = new SalonViewModel();
+        model = new SalonViewModel(DialogCoordinator.Instance);
         this.DataContext = model;
         } 
     }

@@ -11,7 +11,7 @@ namespace Kalum2020v1.Views
         public ReligionView()
         {
         InitializeComponent();
-        model = new ReligionViewModel();
+        model = new ReligionViewModel(DialogCoordinator.Instance);
         this.DataContext = model;
         } 
         

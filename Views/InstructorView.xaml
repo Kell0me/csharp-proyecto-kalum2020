@@ -45,8 +45,8 @@
         <TextBox IsReadOnly ="{Binding IsReadOnlyApellidos}" Grid.Row ="1" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.Apellidos}"/>
         <Label Grid.Row = "2" Grid.Column ="0" Content="Nombres"/>
         <TextBox IsReadOnly ="{Binding IsReadOnlyNombres}" Grid.Row ="2" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.Nombres}"/>    
-        <Label Grid.Row = "3" Grid.Column ="0" Content="Dirección"/>
-        <TextBox IsReadOnly ="{Binding IsReadOnlyDirección}" Grid.Row ="3" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.Dirección}"/>
+        <Label Grid.Row = "3" Grid.Column ="0" Content="Direccion"/>
+        <TextBox IsReadOnly ="{Binding IsReadOnlyDireccion}" Grid.Row ="3" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.Direccion}"/>
         <Label Grid.Row = "4" Grid.Column ="0" Content="Telefono"/>
         <TextBox IsReadOnly ="{Binding IsReadOnlyTelefono}" Grid.Row ="4" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.Telefono}"/>
         <Label Grid.Row = "5" Grid.Column ="0" Content="Comentario"/>

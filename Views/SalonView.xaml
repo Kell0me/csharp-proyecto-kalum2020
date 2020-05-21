@@ -5,28 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2020v1"
         mc:Ignorable="d"
         Title="Salones" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <DataGrid Grid.Row = "0" ItemsSource = "{Binding ListaSalones}" CanUserAddRows ="False" ColumnWidth="*" AutoGenerateColumns="False">
+            <RowDefinition Height ="30"/>
+            <RowDefinition Height ="30"/>
+            <RowDefinition Height ="30"/>
+            <RowDefinition Height ="30"/>
+            <RowDefinition Height ="40"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+        <DataGrid SelectedItem="{Binding ElementoSeleccionado}" Grid.Row = "0" Grid.ColumnSpan= "2" 
+        ItemsSource = "{Binding ListaSalones}" CanUserAddRows ="False" ColumnWidth="*" AutoGenerateColumns="False">
         <DataGrid.Columns>
+        <DataGridCheckBoxColumn  ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                            EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                            Header="SELECCIONAR"
+                            Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"/>
             <DataGridTextColumn Binding="{Binding NombreSalon}" Header="Nombre del Salon" IsReadOnly="True"/>
             <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripcion" IsReadOnly="True"/>
             <DataGridTextColumn Binding="{Binding Capacidad}" Header="Capacidad" IsReadOnly="True"/>
         </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Margin = "5" Orientation= "Horizontal" Grid.Row ="5" Grid.ColumnSpan="2">
-            <Button Margin ="5" Content= "Agregar" Command="{Binding Instancia}" CommandParameter="Nuevo"/>
-            <Button Margin ="5" Content= "Modificar"/>
-            <Button Margin ="5" Content= "Eliminar"/>
-            <Button Margin ="5" Content= "Guardar" Command = "{Binding Instancia}" CommandParameter="Guardar"/>
-            <Button Margin ="5" Content= "Cancelar"/>
+        <Label Grid.Row = "1" Grid.Column ="0" Content="Salon"/>
+        <TextBox IsReadOnly ="{Binding IsReadOnlyNombreSalones}" Grid.Row ="1" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.NombreSalon}"/>
+        <Label Grid.Row = "2" Grid.Column ="0" Content="Descripcion"/>
+        <TextBox IsReadOnly ="{Binding IsReadOnlyDescripciones}" Grid.Row ="2" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.Descripcion}"/>    
+        <Label Grid.Row = "3" Grid.Column ="0" Content="Capacidad"/>
+        <TextBox IsReadOnly ="{Binding IsReadOnlyCapacidades}" Grid.Row ="3" Grid.Column ="1" Text= "{Binding ElementoSeleccionado.Capacidad}"/>
+        <StackPanel Margin = "4" Orientation= "Horizontal" Grid.Row ="5" Grid.ColumnSpan="2">
+            <Button IsEnabled = "{Binding IsNuevo}" Margin ="5" Content= "Agregar" Command="{Binding Instancia}" CommandParameter="Nuevo"/>
+            <Button IsEnabled = "{Binding IsModificar}"  Margin ="5" Content= "Modificar" Command="{Binding Instancia}" CommandParameter="Modificar"/>
+            <Button IsEnabled = "{Binding IsEliminar}" Command="{Binding Instancia}" CommandParameter = "Eliminar" Margin ="5" Content= "Eliminar"/>
+            <Button IsEnabled = "{Binding IsGuardar}" Margin ="5" Content= "Guardar" Command = "{Binding Instancia}" CommandParameter="Guardar"/>
+            <Button IsEnabled = "{Binding IsCancelar}" Command="{Binding Instancia}" CommandParameter="Cancelar" Margin ="5" Content= "Cancelar"/>
         </StackPanel>
-
     </Grid>
 </mah:MetroWindow>
