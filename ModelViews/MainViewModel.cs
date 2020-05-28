@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using Kalum2020v1.Models;
 using Kalum2020v1.Views;
 
 namespace Kalum2020v1.ModelViews
@@ -9,6 +10,42 @@ namespace Kalum2020v1.ModelViews
 
     public class MainViewModel : INotifyPropertyChanged, ICommand
     {
+        private string _ImgHome = $"{Environment.CurrentDirectory}\\Images\\home.png";
+        public string ImgHome
+        {
+            get { return _ImgHome; }
+            set { _ImgHome = value; }
+        }
+        private string _ImgFoto = $"{Environment.CurrentDirectory}\\Images\\System.jpg";
+        public string ImgFoto
+        {
+            get { return _ImgFoto; }
+            set { _ImgFoto = value; }
+        }
+
+        
+        private Usuario _Usuario;
+        public Usuario Usuario
+        {
+            get { return _Usuario; }
+            set { _Usuario = value; }
+        }
+                
+        private bool _IsMenuCatalogo = false;
+        public bool IsMenuCatalogo
+        {
+            get { return _IsMenuCatalogo; }
+            set { _IsMenuCatalogo = value; NotificarCambio("IsMenuCatalogo");}
+        }
+
+        private bool _IsMenuLogin = true;
+        public bool IsMenuLogin
+        {
+            get { return _IsMenuLogin; }
+            set { _IsMenuLogin = value; NotificarCambio("IsMenuLogin");}
+        }
+
+        
         public MainViewModel _Instancia;
         public MainViewModel Instancia
         {
@@ -37,8 +74,9 @@ namespace Kalum2020v1.ModelViews
             }
             else if(parametro.Equals("Login"))
             {
-                LoginView view = new LoginView();
+                LoginView view = new LoginView(this);
                 view.ShowDialog();
+
             }
             else if(parametro.Equals("CarrerasTecnicas"))
             {

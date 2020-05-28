@@ -21,6 +21,12 @@ namespace Kalum2020v1.ModelViews
     
     public class ReligionViewModel : INotifyPropertyChanged, ICommand
     {
+        private string _ImgReligiones = $"{Environment.CurrentDirectory}\\Images\\religiones.png";
+        public string ImgReligiones
+        {
+            get { return _ImgReligiones; }
+            set { _ImgReligiones = value; }
+        }
         private AACCIONESS _accion = AACCIONESS.NINGUNO;
         private KalumDbContext dbcontext; 
         private ReligionViewModel _Instancia;

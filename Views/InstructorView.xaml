@@ -7,7 +7,8 @@
         xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Kalum2020v1"
         mc:Ignorable="d"
-        Title="Instructores" Height="450" Width="800">
+        Title="Instructores" Height="450" Width="800" Icon ="{Binding ImgInstructor}">
+     <Border Background="#E0F2F7" CornerRadius="20" Margin="20" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -64,4 +65,5 @@
         </StackPanel>
 
     </Grid>
+</Border>
 </mah:MetroWindow>

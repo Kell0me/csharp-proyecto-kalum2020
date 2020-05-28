@@ -8,14 +8,35 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Kalum2020v1.Models;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace Kalum2020v1.ModelViews
 {
     public class LoginModelView : INotifyPropertyChanged, ICommand 
     {
+         private string _ImgFoto = $"{Environment.CurrentDirectory}\\Images\\acceso.png";
+        public string ImgFoto
+       {
+            get { return _ImgFoto;}
+            set { _ImgFoto = value;}
+        }
+        private IDialogCoordinator _DialogCoordinator;
         private KalumDbContext _DbContext;
+        private MainViewModel _MainViewModel;
+        public MainViewModel MainViewModel
+        {
+            get { return _MainViewModel; }
+            set { _MainViewModel = value; }
+        }
+        
         private string _Password;
+
         private Usuario _Usuario;
+        private Usuario Usuario
+        {
+            get { return _Usuario;}
+            set { _Usuario = value;}
+        }
         public string Password
         {
             get { return _Password; }
@@ -35,9 +56,11 @@ namespace Kalum2020v1.ModelViews
             set { _Instancia = value; NotificarCambio("Instancia"); }
         }
 
-        public LoginModelView()
+        public LoginModelView(IDialogCoordinator instance, MainViewModel mainViewModel)
         {
+            this.MainViewModel = mainViewModel;
             this.Instancia = this;
+            this._DialogCoordinator = instance;
             this._DbContext = new KalumDbContext();
 
         }
@@ -47,7 +70,7 @@ namespace Kalum2020v1.ModelViews
         {
             return true;
         }
-        public void Execute(object parametro)
+        public async void Execute(object parametro)
         {
             if (parametro is Window)
             {
@@ -61,11 +84,15 @@ namespace Kalum2020v1.ModelViews
                         UsernameParameter, PasswordParameter).ToList();
                 foreach (Object objeto in Resultado)
                 {
-                    _Usuario = (Usuario)objeto;
+                    this.Usuario = (Usuario)objeto;
                 }
-                if (_Usuario != null)
+                if (this.Usuario != null)
                 {
-                    MessageBox.Show($"Bienvenido {_Usuario.Apellidos} {_Usuario.Nombres}");
+                    await this._DialogCoordinator.ShowMessageAsync(this,"Login",$"Bienvenido {_Usuario.Apellidos} {_Usuario.Nombres}");
+                    this.MainViewModel.IsMenuCatalogo = true;
+                    this.MainViewModel.IsMenuLogin = false;
+                    this.MainViewModel.Usuario = this.Usuario;
+                    ((Window)parametro).Close();
                 }
                 else
                 {

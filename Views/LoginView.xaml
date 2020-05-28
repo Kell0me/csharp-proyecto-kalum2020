@@ -8,8 +8,9 @@
         Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2020v1"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800" WindowStartupLocation ="CenterScreen" Name="FormularioLogin">
-    <Border Background="#E0F2F7" CornerRadius="20" Margin="20" >
+        Title="Login" Height="450" Width="800" WindowStartupLocation ="CenterScreen" Name="FormularioLogin"
+        Icon ="{Binding ImgFoto}" >
+<Border Background="#72A1DF" CornerRadius="20" Margin="20" >        
     <StackPanel Margin="20">
         <Label Foreground="Black" FontSize="25" HorizontalAlignment="Center">
             <Bold>Login </Bold>

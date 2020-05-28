@@ -8,7 +8,8 @@
         Dialog:DialogParticipation.Register="{Binding}"
         xmlns:local="clr-namespace:Kalum2020v1"
         mc:Ignorable="d"
-        Title="Salones" Height="450" Width="800">
+        Title="Salones" Height="450" Width="800" Icon ="{Binding ImgSalones}">
+        <Border Background="#E0F2F7" CornerRadius="20" Margin="20" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -48,4 +49,5 @@
             <Button IsEnabled = "{Binding IsCancelar}" Command="{Binding Instancia}" CommandParameter="Cancelar" Margin ="5" Content= "Cancelar"/>
         </StackPanel>
     </Grid>
+    </Border>    
 </mah:MetroWindow>

@@ -6,61 +6,62 @@
         xmlns:local="clr-namespace:Kalum2020v1"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="480" WindowStartupLocation = "CenterScreen" 
-        Icon ="{Binding imgSytem}">
+        Title="KALUM 2020" Height="450" Width="480" WindowStartupLocation = "CenterScreen" 
+        Icon ="{Binding ImgHome}">
     <Grid>
     <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="*"/>
         <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
-    <Menu Grid.Row="0"
-             Margin="5"
-             HorizontalAlignment="Left"
-             VerticalAlignment="Stretch">
-        <MenuItem Header ="Menu">     
-           <MenuItem Header="Login">
+    <StackPanel Grid.Row = "0" Grid.Column="0" Orientation="Horizontal" >
+    <Menu> 
+        <MenuItem Foreground="Black" FontSize="20" Header ="Menu" >     
+           <MenuItem Foreground="Black" FontSize="15" Header="Login" IsEnabled="{Binding IsMenuLogin}">
                 <MenuItem Command="{Binding Instancia}"
                           CommandParameter="Login"  
                           Header="Iniciar Sesion"/>
             </MenuItem>
-           <MenuItem Header="Catalogos">
+           <MenuItem Foreground="Black" FontSize="15" Header="Catalogos" IsEnabled= "{Binding IsMenuCatalogo}">
              <MenuItem Command="{Binding Instancia}"
                        CommandParameter="AlumnosView"
                        Header="Alumnos"/>
-              <MenuItem Header="Reportes"/>   
+            <MenuItem Foreground="Black" FontSize="15" Command="{Binding Instancia}"
+                       CommandParameter="CarrerasTecnicas"
+                       Header="Carreras Tecnicas"/>
+                         <MenuItem Foreground="Black" FontSize="15" Command="{Binding Instancia}"
+                       CommandParameter="Horarios"
+                       Header="Horarios"/>
+             
+             <MenuItem Foreground="Black" FontSize="15" Command="{Binding Instancia}"
+                       CommandParameter="Instructores"
+                       Header="Instructores"/>  
+              
+             <MenuItem Foreground="Black" FontSize="15" Command="{Binding Instancia}"
+                       CommandParameter="Religiones"
+                       Header="Religiones"/>  
+                  
+             <MenuItem Foreground="Black" FontSize="15" Command="{Binding Instancia}"
+                       CommandParameter="Salones"
+                       Header="salones"/>  
+
+             <MenuItem Foreground="Black" FontSize="15" Command="{Binding Instancia}"
+                       CommandParameter="Salir"
+                       Header="salir"/>            
+
+              <MenuItem Foreground="Black" FontSize="15" Header="Reportes"/>   
                 <MenuItem.Icon>
                         <Image Source="{Binding imgAlumnos}"> </Image>
                 </MenuItem.Icon>
         </MenuItem>
         <Separator/>  
-
-             <MenuItem Command="{Binding Instancia}"
-                       CommandParameter="CarrerasTecnicas"
-                       Header="Carreras Tecnicas"/>
-             <MenuItem Command="{Binding Instancia}"
-                       CommandParameter="Horarios"
-                       Header="Horarios"/>
-             
-             <MenuItem Command="{Binding Instancia}"
-                       CommandParameter="Instructores"
-                       Header="Instructores"/>  
-              
-             <MenuItem Command="{Binding Instancia}"
-                       CommandParameter="Religiones"
-                       Header="Religiones"/>  
-                  
-             <MenuItem Command="{Binding Instancia}"
-                       CommandParameter="Salones"
-                       Header="salones"/>  
-
-              <MenuItem Command="{Binding Instancia}"
+              <MenuItem Foreground="Black" FontSize="15" Command="{Binding Instancia}"
                        CommandParameter="Salir"
                        Header="salir"/>           
         </MenuItem>
-        <MenuItem Header="Reportes"/>
+        <MenuItem Foreground="Black" FontSize="20" Header="Reportes"/>
         <Separator/>
-        <MenuItem Header="Acerca de.....">  
+        <MenuItem Foreground="Black" FontSize="20" Header="Acerca de.....">  
             <MenuItem Command=""
                       CommandParameter=""
                       Header="PaginaWeb" />
@@ -69,5 +70,7 @@
                       Header="" />
         </MenuItem>
         </Menu>
+    </StackPanel>
+     <Image Grid.Row="1" Source="{Binding ImgFoto}" Stretch="fill"/>
     </Grid>
 </mah:MetroWindow>

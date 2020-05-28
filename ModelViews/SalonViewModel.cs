@@ -21,6 +21,12 @@ namespace Kalum2020v1.ModelViews
     
     public class SalonViewModel : INotifyPropertyChanged, ICommand
     {
+        private string _ImgSalones = $"{Environment.CurrentDirectory}\\Images\\salones.png";
+        public string ImgSalones
+        {
+            get { return _ImgSalones; }
+            set { _ImgSalones = value; }
+        }
         private ACIONESS _accion = ACIONESS.NINGUNO;
         private KalumDbContext dbcontext; 
         private SalonViewModel _Instancia;

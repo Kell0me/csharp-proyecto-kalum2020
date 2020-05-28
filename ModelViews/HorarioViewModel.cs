@@ -21,6 +21,12 @@ namespace Kalum2020v1.ModelViews
 
     public class HorarioViewModel : INotifyPropertyChanged, ICommand
     {
+        private string _ImgHorarios = $"{Environment.CurrentDirectory}\\Images\\horarios.png";
+        public string ImgHorarios
+        {
+            get { return _ImgHorarios; }
+            set { _ImgHorarios = value; }
+        }
         private ACCIONESS _accion = ACCIONESS.NINGUNO;
         private KalumDbContext dbcontext; 
 

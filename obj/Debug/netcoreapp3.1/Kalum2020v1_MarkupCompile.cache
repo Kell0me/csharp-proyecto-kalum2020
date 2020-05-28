@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\sabado\net\modulos\uno\Kalum2020v1\obj\Debug\netcoreapp3.1\
+c:\sabado\net\modulos\uno\Kalum2020v1\obj\Debug\netcoreapp3.1\
 Kalum2020v1
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\sabado\net\modulos\uno\Kalum2020v1\App.xaml
-8-459702886
+c:\sabado\net\modulos\uno\Kalum2020v1\App.xaml
+81711411938
 
-47-834865316
-2182027918055
+48-544545497
+2181067718154
 MainWindow.xaml;Views\AlumnoView.xaml;Views\CarreraTecnica.xaml;Views\HorarioView.xaml;Views\InstructorView.xaml;Views\LoginView.xaml;Views\ReligionView.xaml;Views\SalonView.xaml;
 
-False
+True
 

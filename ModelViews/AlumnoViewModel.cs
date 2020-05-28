@@ -20,11 +20,6 @@ namespace Kalum2020v1.ModelViews
     }
     public class AlumnoViewModel : INotifyPropertyChanged, ICommand
     {
-       private string _imgSystem = $"{Environment.CurrentDirectory}\\Images\\System.png";
-        public string imgSystem
-        {
-            get{ return _imgSystem;} set{_imgSystem = value; NotificarCambio ("imgSystem"); }
-        } 
         private ACCION _accion = ACCION.NINGUNO;
         private KalumDbContext dbContext;
 

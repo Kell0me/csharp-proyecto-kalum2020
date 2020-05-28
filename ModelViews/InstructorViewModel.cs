@@ -20,6 +20,12 @@ namespace Kalum2020v1.ModelViews
     
     public class InstructorViewModel : INotifyPropertyChanged, ICommand
     {
+        private string _ImgInstructor = $"{Environment.CurrentDirectory}\\Images\\instructor.png";
+        public string ImgInstructor
+        {
+            get { return _ImgInstructor; }
+            set { _ImgInstructor = value; }
+        }
         private AACCIONES _accion = AACCIONES.NINGUNO;
         private KalumDbContext dbcontext; 
         private InstructorViewModel _Instancia;

@@ -11,6 +11,7 @@ using MahApps.Metro.Controls.Dialogs;
 
 namespace Kalum2020v1.ModelViews
 {
+    
     enum ACCIONES
     {
         NINGUNO,
@@ -20,6 +21,13 @@ namespace Kalum2020v1.ModelViews
     }
     public class CarreraTecnicaViewModel : INotifyPropertyChanged, ICommand
     {
+         private string _ImgCarrera = $"{Environment.CurrentDirectory}\\Images\\Carrera.png";
+        public string ImgCarrera
+        {
+            get { return _ImgCarrera; }
+            set { _ImgCarrera = value; }
+        }
+
         private ACCIONES _accion = ACCIONES.NINGUNO;
         private KalumDbContext dbcontext; 
         private CarreraTecnicaViewModel _Instancia;
